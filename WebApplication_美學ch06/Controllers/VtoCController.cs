@@ -27,5 +27,12 @@ namespace WebApplication_美學ch06.Controllers
             ViewBag.id = id;
             return View();
         }
+
+        //簡單 Model Binding
+        public ActionResult BasicModelBinding(string name)
+        {
+            ViewBag.Name = name;
+            return View();
+        }
     }
 }
