@@ -200,6 +200,7 @@
     <Compile Include="Models\Supplier.cs">
       <DependentUpon>Northwind.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\PersonViewModel.cs" />
     <Compile Include="Models\ViewModel\ProductCategoryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -276,6 +277,9 @@
     <Content Include="Views\VtoC\BasicModelBindingByModel.cshtml" />
     <Content Include="Views\VtoC\DemoFormCollection.cshtml" />
     <Content Include="Views\VtoC\PersonModelBinding.cshtml" />
+    <Content Include="Views\VtoC\MultiPersonModelBinding.cshtml" />
+    <Content Include="Views\VtoC\ViewModelModelBinding.cshtml" />
+    <Content Include="Views\VtoC\ShowViewModelModelBinding.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

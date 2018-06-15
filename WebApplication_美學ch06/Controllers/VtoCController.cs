@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication_美學ch06.Models;
+using WebApplication_美學ch06.Models.ViewModel;
 
 namespace WebApplication_美學ch06.Controllers
 {
@@ -56,6 +57,30 @@ namespace WebApplication_美學ch06.Controllers
         public ActionResult PersonModelBinding(Person person)
         {
             return View(person);
+        }
+
+        //多 Model 的 Model Binding
+        public ActionResult MultiPersonModelBinding(Person man, Person woman)
+        {
+            ViewBag.ManName = man.Name;
+            ViewBag.ManAge = man.Age;
+
+            ViewBag.WomanName = woman.Name;
+            ViewBag.WomanAge = woman.Age;
+
+            return View();
+        }
+
+        //PersonViewModel
+        public ActionResult ViewModelModelBinding()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ViewModelModelBinding(PersonViewModel person )
+        {
+            return View("ShowViewModelModelBinding", person);
         }
     }
 }
