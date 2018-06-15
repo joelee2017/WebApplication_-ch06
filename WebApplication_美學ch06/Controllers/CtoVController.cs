@@ -102,5 +102,15 @@ namespace WebApplication_美學ch06.Controllers
                 Category = (from c in db.Categories select c).Take(10).ToList()
             });
         }
+
+        public ActionResult DemoTuple()
+        {
+            var products = db.Products.ToList();
+            var categories = db.Categories.ToList();
+            var suppliers = db.Suppliers.ToList();
+            var tupleModel = new Tuple<List<Product>, List<Category>, List<Supplier>>(products, categories, suppliers);
+
+            return View(tupleModel);
+        }
     }
 }

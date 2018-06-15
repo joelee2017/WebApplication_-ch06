@@ -266,6 +266,8 @@
     <Content Include="Views\CtoV\DemoSelectList.cshtml" />
     <Content Include="Views\CtoV\DemoMultiModelObject.cshtml" />
     <Content Include="Views\CtoV\DemoTempDataProduct.cshtml" />
+    <Content Include="Views\CtoV\DemoViewMdoel.cshtml" />
+    <Content Include="Views\CtoV\DemoTuple.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

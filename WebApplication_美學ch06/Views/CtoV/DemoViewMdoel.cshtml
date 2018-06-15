@@ -1,0 +1,35 @@
+﻿@model WebApplication_美學ch06.Models.ViewModel.ProductCategoryViewModel
+
+@{
+    ViewBag.Title = "DemoViewMdoel";
+}
+
+<h2>DemoViewMdoel</h2>
+
+<div>
+    <ul>
+        <li>@Model.Name</li>
+        <li>@Model.Book</li>
+    </ul>
+</div>
+
+<h3>ProductName</h3>
+<ul>
+    @foreach(var item in Model.Product)
+    {
+        <li>
+            @item.ProductName
+        </li>
+    }
+</ul>
+
+<h3>CategoryName</h3>
+<ul>
+    @foreach(var item in Model.Category)
+    {
+        <li>
+            @item.CategoryName
+        </li>
+    }
+</ul>
+
