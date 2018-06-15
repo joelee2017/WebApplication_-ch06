@@ -1,0 +1,15 @@
+﻿@using WebApplication_美學ch06.Models
+@{
+    ViewBag.Title = "DemoTempDataKeep";
+    var products = TempData["products"] as List<Product>;
+    TempData.Keep();
+}
+
+<h2>DemoTempDataKeep</h2>
+
+<ul>
+    @foreach (var item in products)
+    {
+        <li>@item.ProductName</li>
+    }
+</ul>
