@@ -21,5 +21,11 @@ namespace WebApplication_美學ch06.Controllers
             ViewBag.id = int.Parse(Request.QueryString["id"]);
             return View();
         }
+
+        public ActionResult DemoRouteData(int id)
+        {
+            ViewBag.id = id;
+            return View();
+        }
     }
 }
