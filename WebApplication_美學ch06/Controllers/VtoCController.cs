@@ -16,12 +16,15 @@ namespace WebApplication_美學ch06.Controllers
         {
             return View();
         }
+
+        //QueryString
         public ActionResult DemoQueryString()
         {
             ViewBag.id = int.Parse(Request.QueryString["id"]);
             return View();
         }
 
+        //RouteData  {Controller}/{Action}/{Id}
         public ActionResult DemoRouteData(int id)
         {
             ViewBag.id = id;
@@ -33,6 +36,26 @@ namespace WebApplication_美學ch06.Controllers
         {
             ViewBag.Name = name;
             return View();
+        }
+
+        public ActionResult BasicModelBindingByModel(string name)
+        {
+            ViewData.Model = name;
+            return View();
+        }
+
+        //FormCollection
+        public ActionResult DemoFormCollection(FormCollection form)
+        {
+            ViewBag.Name = form["name"];
+            ViewBag.Age = form["age"];
+            return View();
+        }
+
+        //複雜 ModelBinding
+        public ActionResult PersonModelBinding(Person person)
+        {
+            return View(person);
         }
     }
 }

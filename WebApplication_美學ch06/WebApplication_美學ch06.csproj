@@ -193,6 +193,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Northwind.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>Northwind.tt</DependentUpon>
     </Compile>
@@ -272,6 +273,9 @@
     <Content Include="Views\VtoC\DemoQueryString.cshtml" />
     <Content Include="Views\VtoC\DemoRouteData.cshtml" />
     <Content Include="Views\VtoC\BasicModelBinding.cshtml" />
+    <Content Include="Views\VtoC\BasicModelBindingByModel.cshtml" />
+    <Content Include="Views\VtoC\DemoFormCollection.cshtml" />
+    <Content Include="Views\VtoC\PersonModelBinding.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
