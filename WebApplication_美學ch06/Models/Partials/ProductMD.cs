@@ -14,6 +14,8 @@ namespace WebApplication_美學ch06.Models
             [ScaffoldColumn(false)]
             public int ProductID { get; set; }
             [Required]
+            [Display(Name ="產品名稱")]
+            [StringLength(50)]
             public string ProductName { get; set; }
             [Required]
             public string QuantityPerUnit { get; set; }
