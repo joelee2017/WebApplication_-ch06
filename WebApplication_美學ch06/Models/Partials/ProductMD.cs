@@ -22,7 +22,9 @@ namespace WebApplication_美學ch06.Models
             [Required]
             public string QuantityPerUnit { get; set; }
             [Required]
-            public bool Discontinued { get; set; }            
+            public bool Discontinued { get; set; }        
+            [Price(MinPrice = 10)]
+            public Nullable<decimal> UnitPrice { get; set; }
         }
 
         public class StringValidator
@@ -31,7 +33,7 @@ namespace WebApplication_美學ch06.Models
             {
                 Regex regex = new Regex(@"[^\w\.-]", RegexOptions.IgnoreCase);
                 return (productName != null && regex.Match(productName).Length > 0)
-                    ? new ValidationResult("只許含只許英數字元，句號(.)，連字號(-)。")
+                    ? new ValidationResult("只許包含英數字元，句號(.)，連字號(-)。")
                     : ValidationResult.Success;
             }
         }
