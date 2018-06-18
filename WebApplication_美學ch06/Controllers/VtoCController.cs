@@ -80,7 +80,11 @@ namespace WebApplication_美學ch06.Controllers
         [HttpPost]
         public ActionResult ViewModelModelBinding(PersonViewModel person )
         {
+            //ViewModelModelBinding  Submit 資收接到轉到 ShowViewModelModelBinding 頁面
             return View("ShowViewModelModelBinding", person);
         }
+
+
+
     }
 }

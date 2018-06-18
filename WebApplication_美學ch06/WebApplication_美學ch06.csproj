@@ -171,6 +171,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CtoVController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ModelBinderController.cs" />
     <Compile Include="Controllers\VtoCController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,6 +194,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Northwind.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\ProductMD.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>Northwind.tt</DependentUpon>
@@ -280,6 +282,8 @@
     <Content Include="Views\VtoC\MultiPersonModelBinding.cshtml" />
     <Content Include="Views\VtoC\ViewModelModelBinding.cshtml" />
     <Content Include="Views\VtoC\ShowViewModelModelBinding.cshtml" />
+    <Content Include="Views\ModelBinder\Test.cshtml" />
+    <Content Include="Views\ModelBinder\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
