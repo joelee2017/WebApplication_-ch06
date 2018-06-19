@@ -28,8 +28,5 @@ namespace WebApplication_美學ch06.Models
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-
-        public System.Data.Entity.DbSet<WebApplication_美學ch06.Models.Customer1> Customer1 { get; set; }
     }
 }
