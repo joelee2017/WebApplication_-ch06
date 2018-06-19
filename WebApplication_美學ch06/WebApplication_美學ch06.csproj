@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CtoVController.cs" />
+    <Compile Include="Controllers\Customer1Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModelBinderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -183,6 +184,9 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>Northwind.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Customer1.cs" />
+    <Compile Include="Models\CustomerContext.cs" />
+    <Compile Include="Models\EmailAttribute.cs" />
     <Compile Include="Models\Northwind.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -198,7 +202,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Northwind.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Partials\ProductMD.cs" />
+    <Compile Include="Models\Partials\Product.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PriceAttribute.cs" />
     <Compile Include="Models\Product.cs">
@@ -294,6 +298,12 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Scripts\price.validate.js" />
+    <Content Include="Views\Customer1\Create.cshtml" />
+    <Content Include="Views\Customer1\Delete.cshtml" />
+    <Content Include="Views\Customer1\Details.cshtml" />
+    <Content Include="Views\Customer1\Edit.cshtml" />
+    <Content Include="Views\Customer1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
