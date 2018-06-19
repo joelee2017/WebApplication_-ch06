@@ -50,9 +50,24 @@ namespace WebApplication_美學ch06.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued")] Product product)
-        {
+        {          
+            if(ModelState["UnitPrice"].Errors.Count > 0)
+            {
+                ModelError error = ModelState["UnitPrice"].Errors[0];
+                string errorMessage = error.ErrorMessage;
+                Exception errorException = error.Exception;
+                //寫入日誌
+            }
+
             if (ModelState.IsValid)
             {
+                //自訂驗證
+                //if (product.UnitPrice <= 0)
+                //{
+                //    ModelState.AddModelError("UnitPrice", "請確認產品單價是否有問題 ?");
+                //    return View(product);
+                //}
+
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,6 +75,9 @@ namespace WebApplication_美學ch06.Controllers
 
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
             ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName", product.SupplierID);
+
+            //清除ModelState
+            ModelState.Clear();
             return View(product);
         }
 
@@ -85,17 +103,32 @@ namespace WebApplication_美學ch06.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued")] Product product)
+        public ActionResult Edit(/*[Bind(Include = "ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued")] Product product*/)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(product).State = EntityState.Modified;
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+
+            Product product = new Product();
+            try
             {
+                UpdateModel(product);
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
+            catch (Exception)
+            {
+                return View(product);
+            }
+
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
             ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName", product.SupplierID);
-            return View(product);
+
+            return RedirectToAction("Index");
+            
         }
 
         // GET: Products/Delete/5
