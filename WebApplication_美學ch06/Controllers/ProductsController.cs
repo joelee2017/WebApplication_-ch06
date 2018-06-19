@@ -39,8 +39,8 @@ namespace WebApplication_美學ch06.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
-            ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName");
+            //ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
+            //ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName");
             return View();
         }
 
@@ -62,19 +62,19 @@ namespace WebApplication_美學ch06.Controllers
             if (ModelState.IsValid)
             {
                 //自訂驗證
-                //if (product.UnitPrice <= 0)
-                //{
-                //    ModelState.AddModelError("UnitPrice", "請確認產品單價是否有問題 ?");
-                //    return View(product);
-                //}
+                if (product.UnitPrice <= 0)
+                {
+                    ModelState.AddModelError("UnitPrice", "請確認產品單價是否有問題 ?");
+                    return View(product);
+                }
 
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
-            ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName", product.SupplierID);
+            //ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
+            //ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName", product.SupplierID);
 
             //清除ModelState
             ModelState.Clear();
@@ -93,8 +93,8 @@ namespace WebApplication_美學ch06.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
-            ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName", product.SupplierID);
+            //ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
+            //ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName", product.SupplierID);
             return View(product);
         }
 
@@ -103,31 +103,27 @@ namespace WebApplication_美學ch06.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(/*[Bind(Include = "ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued")] Product product*/)
+        public ActionResult Edit()
         {
-            //if (ModelState.IsValid)
-            //{
-            //    db.Entry(product).State = EntityState.Modified;
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
 
             Product product = new Product();
-            try
+            TryUpdateModel(product, new[] { "ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued" });
+            if (TryUpdateModel(product))
             {
-                UpdateModel(product);
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            catch (Exception)
+            else
             {
+                //錯誤處理
                 return View(product);
             }
 
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
-            ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName", product.SupplierID);
+            //ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
+            //ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName", product.SupplierID);
 
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
             
         }
 
