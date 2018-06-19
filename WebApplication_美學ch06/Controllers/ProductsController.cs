@@ -103,12 +103,12 @@ namespace WebApplication_美學ch06.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit()
+        public ActionResult Edit(FormCollection form)
         {
 
             Product product = new Product();
-            TryUpdateModel(product, new[] { "ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued" });
-            if (TryUpdateModel(product))
+            TryUpdateModel(product, "", new[] { "SupplierID,CategoryID,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel" });
+            if (ModelState.IsValid)
             {
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
