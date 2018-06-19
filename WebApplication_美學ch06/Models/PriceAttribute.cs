@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace WebApplication_美學ch06.Models
 {
+    //IClientValidatable 用戶端驗證
     public class PriceAttribute : ValidationAttribute, IClientValidatable
     {
         //最低價格

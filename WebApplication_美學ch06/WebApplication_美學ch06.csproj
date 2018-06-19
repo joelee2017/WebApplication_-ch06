@@ -198,6 +198,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Northwind.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\Employee.cs" />
     <Compile Include="Models\Partials\Product.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PriceAttribute.cs" />
