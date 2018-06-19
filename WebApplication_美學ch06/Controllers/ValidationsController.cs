@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using WebApplication_美學ch06.Models;
 
 namespace WebApplication_美學ch06.Controllers
@@ -10,6 +11,7 @@ namespace WebApplication_美學ch06.Controllers
     public class ValidationsController : Controller
     {
         // GET: Validations/Price 讓用戶端進行 AJAX 呼叫，並回傳一個JSON結果。將設計好的Controller 套用至 Remote 屬性上
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public ActionResult Price([Bind(Include ="UnitPrice")]Product product)
         {
             string message = null;

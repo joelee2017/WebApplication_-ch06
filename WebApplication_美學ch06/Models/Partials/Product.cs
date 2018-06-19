@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WebApplication_美學ch06.Models
 {
@@ -24,6 +25,7 @@ namespace WebApplication_美學ch06.Models
             [Required]
             public bool Discontinued { get; set; }        
             [Price(MinPrice = 10)]
+            [Remote("Price", "Validations")]
             public Nullable<decimal> UnitPrice { get; set; }
         }
 
