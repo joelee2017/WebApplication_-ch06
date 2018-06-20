@@ -21,11 +21,16 @@ namespace WebApplication_美學ch06.Controllers
             return File(path, "text/css");
         }
 
+        //圖片上傳
         public ActionResult UploadToDisk()
         {
             return View();
         }
 
+        //
+        // 摘要:
+        //     Serves as the base class for classes that provide access to individual files
+        //     that have been uploaded by a client.
         [HttpPost]
         public ActionResult UploadToDisk(HttpPostedFileBase file)
         {
@@ -38,8 +43,8 @@ namespace WebApplication_美學ch06.Controllers
                     string path = Path.Combine(Server.MapPath("~/Files/"), fileName);
                     file.SaveAs(path);
                     string message = "Name" + fileName + ",<br>" +
-                                    "Content Type:" + file.ContentType + ",<br>" +
-                                     "Size:" + file.ContentLength + ",<br>" +
+                                    "Content Type:  " + file.ContentType + ",<br>" +
+                                     "Size:  " + file.ContentLength + ",<br>" +
                                      "上傳成功。";
                     TempData["Message"] = message;
                 }
@@ -55,5 +60,29 @@ namespace WebApplication_美學ch06.Controllers
             return RedirectToAction("UploadToDisk");
         }      
         
+
+        //多檔案上傳
+        public ActionResult MultiFileUpload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult MultiFileUpload(IEnumerable<HttpPostedFileBase> files)
+        {
+            string message = null;
+            foreach (var file in files)
+            {
+                if (file != null && file.ContentLength > 0)
+                {
+                    string fileName = Path.GetFileName(file.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Files/"), fileName);
+                    file.SaveAs(path);
+                    message += fileName + "  上傳成功。<br>";
+                }
+            }
+            TempData["Message"] = message;
+            return View();
+        }
     }
 }

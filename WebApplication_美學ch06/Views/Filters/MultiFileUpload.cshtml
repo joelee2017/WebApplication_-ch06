@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "MultiFileUpload";
+}
+
+<h2>MultiFileUpload</h2>
+<div>
+    <div>
+        <span>@Html.Raw(TempData["Message"])</span>
+        @using (Html.BeginForm("MultiFileUpload",
+                "Filters",
+                FormMethod.Post,
+                new { enctype = "multipart/form-data" }))
+        {
+            <div class="uploadfiles">
+                <p>
+                    <input type="file" name="files" />
+                </p>
+            </div>
+            <br />
+            <div>
+                <button>增加檔案</button>
+                &nbsp; &nbsp;
+                <input type="submit" value="上傳" />
+            </div>
+        }
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(function () {
+        $('button').on('click', function () {
+            $('.uploadfiles').append("<p><input type='file' name='files'/></p>");
+            event.preventDefault();
+        });
+    });
+</script>

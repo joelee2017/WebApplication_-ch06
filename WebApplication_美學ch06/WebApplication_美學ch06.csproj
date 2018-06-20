@@ -186,6 +186,9 @@
     </Compile>
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerContext.cs" />
+    <Compile Include="Models\DbFile.cs">
+      <DependentUpon>Northwind.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EmailAttribute.cs" />
     <Compile Include="Models\Northwind.Context.cs">
       <AutoGen>True</AutoGen>
@@ -303,6 +306,7 @@
     <Content Include="Views\OnlineGame\OnlineGame.cshtml" />
     <Content Include="Views\Filters\Index.cshtml" />
     <Content Include="Views\Filters\UploadToDisk.cshtml" />
+    <Content Include="Views\Filters\MultiFileUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
