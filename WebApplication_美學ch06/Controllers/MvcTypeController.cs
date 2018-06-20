@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication_美學ch06.Models;
@@ -46,6 +47,26 @@ namespace WebApplication_美學ch06.Controllers
             Product product = db.Products.Find(id);
             return Json(product);
 
+        }
+
+        [HttpPost]
+        public ActionResult GetPersonJson(Person[] p)
+        {
+            return Json(p, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult DemoRedirect(string param)
+        {
+            if(!string.IsNullOrEmpty(param))
+            {
+                string baseUrl = "http://localhost:6031/";
+                Url url = new Url(baseUrl + param);
+                return Redirect(url.ToString());
+            }
+            else
+            {
+                return Content("error");
+            }
         }
     }
 }

@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CtoVController.cs" />
+    <Compile Include="Controllers\FiltersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModelBinderController.cs" />
     <Compile Include="Controllers\MvcTypeController.cs" />
@@ -300,9 +301,12 @@
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\OnlineGame\OnlineGame.cshtml" />
+    <Content Include="Views\Filters\Index.cshtml" />
+    <Content Include="Views\Filters\UploadToDisk.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Files\" />
     <Folder Include="Views\MvcType\" />
     <Folder Include="Views\Validations\" />
   </ItemGroup>

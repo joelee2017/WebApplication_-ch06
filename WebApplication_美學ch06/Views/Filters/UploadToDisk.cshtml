@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "UploadToDisk";
+}
+
+<h2>UploadToDisk</h2>
+<div>
+    <span>@Html.Raw(TempData["Message"])</span>
+    @using (Html.BeginForm("UploadToDisk",
+        "Filters",
+        FormMethod.Post,
+        new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" id="file" name="file" />
+        <br/>
+        <input type="submit" value="上傳" />
+    }
+</div>
