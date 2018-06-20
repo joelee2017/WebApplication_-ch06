@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "UploadToDB";
+}
+
+<h2>UploadToDB</h2>
+<div>
+    <div>
+        <p>@Html.Raw(TempData["Message"])</p>
+        @using (Html.BeginForm("UploadToDB",
+            "Filters",
+            FormMethod.Post,
+            new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" id="file" name="file" />
+            <br />
+            <input type="submit" value="上傳" />
+        }
+    </div>
+</div>
+
