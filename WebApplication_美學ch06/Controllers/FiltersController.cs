@@ -156,9 +156,11 @@ namespace WebApplication_美學ch06.Controllers
 
                     DbFile dbfile = new DbFile()
                     {
+                        //圖片資料
                         Name = fileName,
                         MimeType = file.ContentType,
                         Size = file.ContentLength,
+                        //圖片實體
                         Content = buffer
                     };
                     try
@@ -181,6 +183,37 @@ namespace WebApplication_美學ch06.Controllers
                     TempData["Message"] = "未選擇或空白檔案。";
                 }
             }
+            return View();
+        }
+
+        public ActionResult DemoFileContent(int id)
+        {
+            var file = db.DbFiles
+                       .Where(f => f.Id == id)
+                       .SingleOrDefault();
+            if(file != null)
+            {
+                byte[] buffer = file.Content;
+                return File(buffer, file.MimeType, file.Name);
+            }
+            return Content("找不到檔案 !");
+        }
+
+        //動態輸出圖片
+        public  ActionResult GetImage(string image)
+        {
+            string path = Server.MapPath(@"~\Files\"+ image +".jpg");
+            byte[] by;
+            using (FileStream fs = new FileStream(path, FileMode.Open))
+            {
+                BinaryReader br = new BinaryReader(fs);
+                by = br.ReadBytes((int)fs.Length);
+            }
+            return File(by, "image/jpeg");
+        }
+
+        public ActionResult ShowImages()
+        {
             return View();
         }
     }

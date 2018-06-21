@@ -14,9 +14,9 @@ namespace WebApplication_美學ch06
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
           //  routes.MapRoute(
-          //    name: "shorUrl",
-          //    url: "{param}",
-          //    defaults: new { controller = "MvcType", action = "DemoRedirect" }
+          //    name: "Image",
+          //    url: "{controller}/{action}/{image}",
+          //    defaults: new { controller = "Filters", action = "GetImages" }
           //);
 
             routes.MapRoute(
