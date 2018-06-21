@@ -237,5 +237,11 @@ namespace WebApplication_美學ch06.Controllers
             // return View();
             return View("DemoActionName2");
         }
+
+        //預設 MasterName
+        public ActionResult DemoMaster()
+        {
+            return View(null, "_Layout2");
+        }
     }
 }
