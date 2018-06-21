@@ -179,6 +179,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ValidationsController.cs" />
     <Compile Include="Controllers\VtoCController.cs" />
+    <Compile Include="Extensions\VideoResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -319,10 +320,12 @@
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\PartialView\_GetTimePartial.cshtml" />
     <Content Include="Views\PartialView\DemoPartialView.cshtml" />
+    <Content Include="Views\Filters\DemoVideo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Files\" />
+    <Folder Include="Videos\" />
     <Folder Include="Views\MvcType\" />
     <Folder Include="Views\Validations\" />
   </ItemGroup>

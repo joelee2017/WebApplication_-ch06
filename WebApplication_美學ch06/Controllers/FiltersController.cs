@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication_美學ch06.Extensions;
 using WebApplication_美學ch06.Models;
 
 namespace WebApplication_美學ch06.Controllers
@@ -242,6 +243,13 @@ namespace WebApplication_美學ch06.Controllers
         public ActionResult DemoMaster()
         {
             return View(null, "_Layout2");
+        }
+
+        //VideoResult
+        public ActionResult DemoVideo()
+        {
+            // 應由資料庫取得相關資訊
+            return new VideoResult("001.mp4", "video/mp4");
         }
     }
 }
