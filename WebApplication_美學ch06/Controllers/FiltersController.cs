@@ -229,5 +229,13 @@ namespace WebApplication_美學ch06.Controllers
         {
             return View();
         }
+
+        //RazorViewEngine
+        public ActionResult DemoActionName()
+        {
+            ViewBag.Book = "ASP.NET MVC 5";
+            // return View();
+            return View("DemoActionName2");
+        }
     }
 }

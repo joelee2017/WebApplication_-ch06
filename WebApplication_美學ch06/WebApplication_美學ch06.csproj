@@ -312,6 +312,8 @@
     <Content Include="Views\Filters\DemoFileContent.cshtml" />
     <Content Include="Views\Filters\ShowImages.cshtml" />
     <Content Include="Views\Filters\StreamImages.cshtml" />
+    <Content Include="Views\Filters\DemoActionName.cshtml" />
+    <Content Include="Views\Filters\DemoActionName2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
