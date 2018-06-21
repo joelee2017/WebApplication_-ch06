@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication_美學ch06.Extensions;
+using WebApplication_美學ch06.Filters;
 using WebApplication_美學ch06.Models;
 
 namespace WebApplication_美學ch06.Controllers
@@ -14,6 +15,7 @@ namespace WebApplication_美學ch06.Controllers
         private NorthwindEntities db = new NorthwindEntities();
 
         // GET: Filters
+        [Mvc5Authv1]
         public ActionResult Index()
         {
             return View();
