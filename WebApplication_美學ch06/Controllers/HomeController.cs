@@ -9,7 +9,7 @@ namespace WebApplication_美學ch06.Controllers
 {
     public class HomeController : Controller
     {
-        //[Mvc5Authv1]
+        [Mvc5Authv2]
         public ActionResult Index()
         {
             return View();
