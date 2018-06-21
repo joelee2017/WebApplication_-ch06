@@ -23,7 +23,7 @@ namespace WebApplication_美學ch06
             //調整 ViewEngine 順序
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new RazorViewEngine());
-            ViewEngines.Engines.Add(new WebFormViewEngine);
+            ViewEngines.Engines.Add(new WebFormViewEngine());
 
             //加上 String-->Decimal 的轉換函數
             ModelBinders.Binders.Add(

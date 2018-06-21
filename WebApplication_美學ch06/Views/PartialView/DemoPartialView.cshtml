@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "DemoPartialView";
+}
+
+<h2>DemoPartialView</h2>
+<div id="now">
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $.get("/PartialView/GetTime",
+                null,
+                function (data) {
+                    $('#now').html(data);
+                });
+        });
+    </script>
+</div>
+
+

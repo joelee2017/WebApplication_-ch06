@@ -175,6 +175,7 @@
     <Compile Include="Controllers\ModelBinderController.cs" />
     <Compile Include="Controllers\MvcTypeController.cs" />
     <Compile Include="Controllers\OnlineGameController.cs" />
+    <Compile Include="Controllers\PartialViewController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ValidationsController.cs" />
     <Compile Include="Controllers\VtoCController.cs" />
@@ -316,6 +317,8 @@
     <Content Include="Views\Filters\DemoActionName2.cshtml" />
     <Content Include="Views\Filters\DemoMaster.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\PartialView\_GetTimePartial.cshtml" />
+    <Content Include="Views\PartialView\DemoPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
