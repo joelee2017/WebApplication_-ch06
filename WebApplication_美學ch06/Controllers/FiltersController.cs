@@ -37,9 +37,9 @@ namespace WebApplication_美學ch06.Controllers
         [HttpPost]
         public ActionResult UploadToDisk(HttpPostedFileBase file)
         {
-            if(file != null)
+            if (file != null)
             {
-                if(file.ContentLength > 0)
+                if (file.ContentLength > 0)
                 {
                     string fileName = Path.GetFileName(file.FileName);
                     //Combine 結合
@@ -61,8 +61,8 @@ namespace WebApplication_美學ch06.Controllers
                 TempData["Message"] = "有選到檔案 ?";
             }
             return RedirectToAction("UploadToDisk");
-        }      
-        
+        }
+
 
         //多檔案上傳
         public ActionResult MultiFileUpload()
@@ -97,7 +97,7 @@ namespace WebApplication_美學ch06.Controllers
         [HttpPost]
         public ActionResult UploadToDB(HttpPostedFileBase file)
         {
-            if(file != null && file.ContentLength > 0)
+            if (file != null && file.ContentLength > 0)
             {
                 string fileName = Path.GetFileName(file.FileName);
                 int length = file.ContentLength;
@@ -122,14 +122,14 @@ namespace WebApplication_美學ch06.Controllers
                                     "上傳成功。";
                     TempData["Message"] = message;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     TempData["Message"] = "儲存錯誤: " + ex.Message;
                 }
             }
             else
             {
-                TempData["Message"] = "未選擇或空白檔案。"; 
+                TempData["Message"] = "未選擇或空白檔案。";
             }
             return View();
         }
@@ -167,10 +167,10 @@ namespace WebApplication_美學ch06.Controllers
                     {
                         db.DbFiles.Add(dbfile);
                         db.SaveChanges();
-                             message = "Name:  " + fileName + ",<br>" +
-                                        "Conten Type:  " + file.ContentType + ",<br>" +
-                                        "Size:  " + file.ContentLength + ",<br>" +
-                                        "上傳成功。";
+                        message = "Name:  " + fileName + ",<br>" +
+                                   "Conten Type:  " + file.ContentType + ",<br>" +
+                                   "Size:  " + file.ContentLength + ",<br>" +
+                                   "上傳成功。";
                         TempData["Message"] = message;
                     }
                     catch (Exception ex)
@@ -191,7 +191,7 @@ namespace WebApplication_美學ch06.Controllers
             var file = db.DbFiles
                        .Where(f => f.Id == id)
                        .SingleOrDefault();
-            if(file != null)
+            if (file != null)
             {
                 byte[] buffer = file.Content;
                 return File(buffer, file.MimeType, file.Name);
@@ -200,9 +200,9 @@ namespace WebApplication_美學ch06.Controllers
         }
 
         //動態輸出圖片
-        public  ActionResult GetImage(string image)
+        public ActionResult GetImage(string image)
         {
-            string path = Server.MapPath(@"~\Files\"+ image +".jpg");
+            string path = Server.MapPath(@"~\Files\" + image + ".jpg");
             byte[] by;
             using (FileStream fs = new FileStream(path, FileMode.Open))
             {
@@ -213,6 +213,19 @@ namespace WebApplication_美學ch06.Controllers
         }
 
         public ActionResult ShowImages()
+        {
+            return View();
+        }
+
+        //FileStreamResult 
+        public ActionResult DemoFileStream(string image)
+        {
+            string path =Server.MapPath(@"~\Files\" + image + ".jpg");
+            FileStream fs = System.IO.File.OpenRead(path);
+            return File(fs, "image/jpge");
+        }
+
+        public ActionResult StreamImages()
         {
             return View();
         }
