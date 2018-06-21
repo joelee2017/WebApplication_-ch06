@@ -133,5 +133,55 @@ namespace WebApplication_美學ch06.Controllers
             }
             return View();
         }
+
+        //多上傳檔案至資料庫
+        public ActionResult MultiFileUploadDB()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult MultiFileUploadDB(IEnumerable<HttpPostedFileBase> files)
+        {
+            string message = null;
+            foreach (var file in files)
+            {
+                if (file != null && file.ContentLength > 0)
+                {
+                    string fileName = Path.GetFileName(file.FileName);
+                    int length = file.ContentLength;
+                    byte[] buffer = new byte[length];
+                    //讀取 Strem 、寫入buffer
+                    file.InputStream.Read(buffer, 0, length);
+
+                    DbFile dbfile = new DbFile()
+                    {
+                        Name = fileName,
+                        MimeType = file.ContentType,
+                        Size = file.ContentLength,
+                        Content = buffer
+                    };
+                    try
+                    {
+                        db.DbFiles.Add(dbfile);
+                        db.SaveChanges();
+                             message = "Name:  " + fileName + ",<br>" +
+                                        "Conten Type:  " + file.ContentType + ",<br>" +
+                                        "Size:  " + file.ContentLength + ",<br>" +
+                                        "上傳成功。";
+                        TempData["Message"] = message;
+                    }
+                    catch (Exception ex)
+                    {
+                        TempData["Message"] = "儲存錯誤: " + ex.Message;
+                    }
+                }
+                else
+                {
+                    TempData["Message"] = "未選擇或空白檔案。";
+                }
+            }
+            return View();
+        }
     }
 }
