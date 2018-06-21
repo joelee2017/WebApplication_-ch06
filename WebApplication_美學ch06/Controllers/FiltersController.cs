@@ -251,5 +251,10 @@ namespace WebApplication_美學ch06.Controllers
             // 應由資料庫取得相關資訊
             return new VideoResult("001.mp4", "video/mp4");
         }
+
+        public ActionResult ShowVideo()
+        {
+            return View();
+        }
     }
 }
