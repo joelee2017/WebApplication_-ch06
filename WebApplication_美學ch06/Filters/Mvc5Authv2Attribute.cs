@@ -8,7 +8,7 @@ using System.Web.Mvc.Filters;
 
 namespace WebApplication_美學ch06.Filters
 {
-    public class Mvc5Authv2Attribute : ActionFilterAttribute, IAuthenticationFilter
+    public class Mvc5Authv2Attribute : ActionFilterAttribute, IAuthenticationFilter, IOverrideFilter
     {
         // InvokeAuthentication 的方法  Filters 在這會觸發
         // 未登入角色或角色不符將回傳 HttpUnauthorizedResult 狀態並重新導向登入頁面
@@ -32,6 +32,11 @@ namespace WebApplication_美學ch06.Filters
                 //HttpUnauthorizedResult    Http未經授權的結果
                 filterContext.Result = new HttpUnauthorizedResult();
             }
+        }
+
+        public Type FiltersToOverride
+        {
+            get { return typeof(IAuthenticationFilter); }
         }
     }
 }

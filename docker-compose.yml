@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  webapplication_ch06:
+    image: ${DOCKER_REGISTRY}webapplicationch06
+    build:
+      context: .\WebApplication_美學ch06
+      dockerfile: Dockerfile

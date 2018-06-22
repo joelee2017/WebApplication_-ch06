@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -169,6 +170,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CtoVController.cs" />
     <Compile Include="Controllers\ExceptionFilterController.cs" />
     <Compile Include="Controllers\FiltersController.cs" />
@@ -183,11 +185,15 @@
     <Compile Include="Controllers\VtoCController.cs" />
     <Compile Include="Extensions\VideoResult.cs" />
     <Compile Include="Filters\LogOutputAttribute.cs" />
+    <Compile Include="Filters\LogToDatabaseAttribute.cs" />
     <Compile Include="Filters\LogToFileAttribute.cs" />
     <Compile Include="Filters\Mvc5Authv1Attribute.cs" />
     <Compile Include="Filters\Mvc5Authv2Attribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ActionLog.cs">
+      <DependentUpon>Northwind.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
       <DependentUpon>Northwind.tt</DependentUpon>
@@ -332,6 +338,7 @@
     <Content Include="Views\ResultFilter\GetCacheTimeForCHildAction.cshtml" />
     <Content Include="Views\ResultFilter\GetTime.cshtml" />
     <Content Include="Views\ExceptionFilter\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

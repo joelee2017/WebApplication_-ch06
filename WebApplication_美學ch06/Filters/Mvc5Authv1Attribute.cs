@@ -7,7 +7,7 @@ using System.Web.Mvc.Filters;
 
 namespace WebApplication_美學ch06.Filters
 {
-    public class Mvc5Authv1Attribute : ActionFilterAttribute, IAuthenticationFilter
+    public class Mvc5Authv1Attribute : ActionFilterAttribute, IAuthenticationFilter, IOverrideFilter
     {
         public void OnAuthentication(AuthenticationContext filterContext)
         {
@@ -22,6 +22,11 @@ namespace WebApplication_美學ch06.Filters
             {
                 filterContext.Result = new HttpUnauthorizedResult();
             }
+        }
+
+        public Type FiltersToOverride
+        {
+            get { return typeof(IAuthenticationFilter); }
         }
     }
 }
