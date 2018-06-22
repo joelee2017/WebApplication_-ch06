@@ -10,6 +10,7 @@ namespace WebApplication_美學ch06
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new LogOutputAttribute());
+            filters.Add(new LogToFileAttribute());
         }
     }
 }
