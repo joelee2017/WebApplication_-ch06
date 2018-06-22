@@ -182,6 +182,7 @@
     <Compile Include="Controllers\ValidationsController.cs" />
     <Compile Include="Controllers\VtoCController.cs" />
     <Compile Include="Extensions\VideoResult.cs" />
+    <Compile Include="Filters\LogOutputAttribute.cs" />
     <Compile Include="Filters\Mvc5Authv1Attribute.cs" />
     <Compile Include="Filters\Mvc5Authv2Attribute.cs" />
     <Compile Include="Global.asax.cs">

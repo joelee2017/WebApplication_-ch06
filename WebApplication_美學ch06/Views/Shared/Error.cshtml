@@ -10,5 +10,12 @@
         <h1>錯誤。</h1>
         <h2>處理您的要求時發生錯誤。</h2>
     </hgroup>
+    <div>
+        <dl>
+            <dt>@Model.ControllerName : @Model.ActionName</dt>
+            <dd> 錯誤原因 :@Model.Exception.ToString()</dd>
+        </dl>
+    </div>
+
 </body>
 </html>
