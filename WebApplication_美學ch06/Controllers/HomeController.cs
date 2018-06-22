@@ -7,6 +7,7 @@ using WebApplication_美學ch06.Filters;
 
 namespace WebApplication_美學ch06.Controllers
 {
+    [OutputCache(CacheProfile ="HomeCache")]
     public class HomeController : Controller
     {
         [Mvc5Authv2]

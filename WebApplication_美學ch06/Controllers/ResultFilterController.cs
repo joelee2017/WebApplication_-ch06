@@ -32,7 +32,8 @@ namespace WebApplication_美學ch06.Controllers
 
         //建立時成為部份檢視
         [ChildActionOnly]
-        [OutputCache(Duration = 10)]
+        //[OutputCache(Duration = 10)]
+        [OutputCache(Duration =10, Location = System.Web.UI.OutputCacheLocation.None)]
         //[OutputCache(Duration =10, Location = System.Web.UI.OutputCacheLocation.Any)]
         public ActionResult GetCacheTimeForCHildAction()
         {
