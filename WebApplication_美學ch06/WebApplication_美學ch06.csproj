@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CtoVController.cs" />
+    <Compile Include="Controllers\ExceptionFilterController.cs" />
     <Compile Include="Controllers\FiltersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModelBinderController.cs" />
@@ -328,6 +329,7 @@
     <Content Include="Views\Filters\GetImageTag.cshtml" />
     <Content Include="Views\ResultFilter\GetCacheTimeForCHildAction.cshtml" />
     <Content Include="Views\ResultFilter\GetTime.cshtml" />
+    <Content Include="Views\ExceptionFilter\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
