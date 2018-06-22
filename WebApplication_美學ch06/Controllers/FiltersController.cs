@@ -260,6 +260,11 @@ namespace WebApplication_美學ch06.Controllers
         }
 
 
+        public ActionResult GetImageTag()
+        {
+            return View();
+        }
+
         [ChildActionOnly]
         public ActionResult ImageTag(string name)
         {

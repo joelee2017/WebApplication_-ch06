@@ -309,7 +309,6 @@
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\OnlineGame\OnlineGame.cshtml" />
-    <Content Include="Views\Filters\Index.cshtml" />
     <Content Include="Views\Filters\UploadToDisk.cshtml" />
     <Content Include="Views\Filters\MultiFileUpload.cshtml" />
     <Content Include="Views\Filters\UploadToDB.cshtml" />
@@ -325,9 +324,10 @@
     <Content Include="Views\PartialView\DemoPartialView.cshtml" />
     <Content Include="Views\Filters\DemoVideo.cshtml" />
     <Content Include="Views\Filters\ShowVideo.cshtml" />
-    <Content Include="Views\Filters\ImageTag.cshtml" />
     <Content Include="Views\Filters\Secure.cshtml" />
-    <Content Include="Views\ResultFilter\GetCacheTtime.cshtml" />
+    <Content Include="Views\Filters\GetImageTag.cshtml" />
+    <Content Include="Views\ResultFilter\GetCacheTimeForCHildAction.cshtml" />
+    <Content Include="Views\ResultFilter\GetTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
