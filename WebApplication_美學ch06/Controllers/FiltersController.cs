@@ -258,5 +258,20 @@ namespace WebApplication_美學ch06.Controllers
         {
             return View();
         }
+
+
+        [ChildActionOnly]
+        public ActionResult ImageTag(string name)
+        {
+            string filePath = "/Files/" + name + ".jpg";
+            string imgTag = "<img src=\"" + filePath + "\" />";
+            return Content(imgTag);
+        }
+
+        //[RequireHttps]
+        public ActionResult Secure()
+        {
+            return View();
+        }
     }
 }

@@ -177,6 +177,7 @@
     <Compile Include="Controllers\OnlineGameController.cs" />
     <Compile Include="Controllers\PartialViewController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ResultFilterController.cs" />
     <Compile Include="Controllers\ValidationsController.cs" />
     <Compile Include="Controllers\VtoCController.cs" />
     <Compile Include="Extensions\VideoResult.cs" />
@@ -324,6 +325,9 @@
     <Content Include="Views\PartialView\DemoPartialView.cshtml" />
     <Content Include="Views\Filters\DemoVideo.cshtml" />
     <Content Include="Views\Filters\ShowVideo.cshtml" />
+    <Content Include="Views\Filters\ImageTag.cshtml" />
+    <Content Include="Views\Filters\Secure.cshtml" />
+    <Content Include="Views\ResultFilter\GetCacheTtime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

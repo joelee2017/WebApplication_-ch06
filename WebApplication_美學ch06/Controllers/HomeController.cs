@@ -15,6 +15,7 @@ namespace WebApplication_美學ch06.Controllers
             return View();
         }
 
+        //[ChildActionOnly]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
